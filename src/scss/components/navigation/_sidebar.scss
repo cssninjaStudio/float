@@ -9,10 +9,10 @@ Icon Sidebar
   box-shadow: var(--light-box-shadow);
   position: fixed;
   top: 0;
-  left: 0;
+  #{$start-direction}: 0;
   height: calc(100% - 1.5rem);
   width: 80px;
-  margin: .75rem;
+  margin: 0.75rem;
   overflow: visible;
   transition: all 0.3s;
   z-index: 39;
@@ -104,7 +104,7 @@ Icon Sidebar
 
     .profile {
       position: absolute;
-      left: 0;
+      #{$start-direction}: 0;
       bottom: 0;
       width: 100%;
 
@@ -135,7 +135,7 @@ Icon Sidebar
       .dot {
         position: absolute;
         top: -0.05rem;
-        right: -0.05rem;
+        #{$end-direction}: -0.05rem;
         width: 0.8rem;
         height: 0.8rem;
         border-radius: 100px;
@@ -155,7 +155,7 @@ Icon Sidebar
     height: 100%;
     margin: 0;
     border-color: transparent;
-    border-right-color: var(--sidebar-default-border-color);
+    border-#{$end-direction}-color: var(--sidebar-default-border-color);
     border-radius: 0;
     box-shadow: none;
   }
@@ -167,14 +167,14 @@ Menu Sidebar
 
 .menu-sidebar {
   background: var(--sidebar-default-bg-color);
-  border-right: 1px solid var(--sidebar-default-border-color);
+  border-#{$end-direction}: 1px solid var(--sidebar-default-border-color);
   position: fixed;
   top: 0;
-  transform: translateX(-101%);
-  left: 0;
+  transform: translateX(calc(-101% * #{$transform-direction}));
+  #{$start-direction}: 0;
   height: 100%;
   width: 330px;
-  padding-left: 80px;
+  padding-#{$start-direction}: 80px;
   overflow: hidden;
   transition: all 0.3s;
   z-index: 38;
@@ -191,7 +191,7 @@ Menu Sidebar
     min-height: 65px;
 
     .sidebar-title {
-      margin-right: auto;
+      margin-#{$end-direction}: auto;
       font-size: 1rem;
       text-transform: uppercase;
       font-weight: 300;
@@ -224,7 +224,7 @@ Menu Sidebar
         > .link-icon {
           display: block;
           font-size: 1.25rem;
-          margin-right: 0.75rem;
+          margin-#{$end-direction}: 0.75rem;
           color: var(--light-text);
         }
 
@@ -234,8 +234,8 @@ Menu Sidebar
 
         > .link-caret {
           display: block;
-          margin-left: auto;
-          margin-right: 0.75rem;
+          margin-#{$start-direction}: auto;
+          margin-#{$end-direction}: 0.75rem;
           font-size: 1.25rem;
           color: var(--light-text);
           transition: transform 0.3s;
@@ -248,9 +248,9 @@ Menu Sidebar
           display: flex;
           align-items: center;
           min-height: 34px;
-          border-right: 3px solid var(--wrap-border-color);
-          margin-right: 1.25rem;
-          margin-left: 0.75rem;
+          border-#{$end-direction}: 3px solid var(--wrap-border-color);
+          margin-#{$end-direction}: 1.25rem;
+          margin-#{$start-direction}: 0.75rem;
           font-family: var(--font);
           font-size: 0.9rem;
           color: var(--light-text);
@@ -262,11 +262,12 @@ Menu Sidebar
               content: "";
               position: absolute;
               top: 0;
-              right: -3px;
+              #{$end-direction}: -3px;
               height: 100%;
               width: 4px;
               background: var(--primary);
-              border-radius: 5rem 0 0 5rem;
+              border-top-#{$start-direction}-radius: 5rem;
+              border-bottom-#{$start-direction}-radius: 5rem;
             }
           }
         }
@@ -301,60 +302,81 @@ Menu Sidebar
 
 @media (max-width: 767px) {
   .icon-sidebar {
-    transform: translateX(-100%);
+    transform: translateX(calc(-120% * #{$transform-direction}));
 
     &.is-icon-sidebar-translated-mobile {
       transform: translateX(calc(100% - 80px)) !important;
+      height: 100%;
+      margin: 0;
+      border-color: transparent;
+      border-#{$end-direction}-color: var(--sidebar-default-border-color);
+      border-radius: 0;
+      box-shadow: none;
     }
   }
 
   .menu-sidebar {
-    left: 0;
+    #{$start-direction}: 0;
     width: 100%;
     max-width: calc(100% - 80px);
+    padding-#{$start-direction}: 1.5rem !important;
 
     &.is-menu-sidebar-translated-mobile {
-      transform: translateX(80px) !important;
+      transform: translateX(calc(80px * #{$transform-direction})) !important;
     }
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .icon-sidebar {
-    transform: translateX(-100%);
+    transform: translateX(calc(-120% * #{$transform-direction}));
 
     &.is-icon-sidebar-translated-mobile {
       transform: translateX(calc(100% - 80px)) !important;
+      height: 100%;
+      margin: 0;
+      border-color: transparent;
+      border-#{$end-direction}-color: var(--sidebar-default-border-color);
+      border-radius: 0;
+      box-shadow: none;
     }
   }
 
   .menu-sidebar {
-    left: 0;
+    #{$start-direction}: 0;
     width: 100%;
     max-width: 250px;
+    padding-#{$start-direction}: 1rem !important;
 
     &.is-menu-sidebar-translated-mobile {
-      transform: translateX(80px) !important;
+      transform: translateX(calc(80px * #{$transform-direction})) !important;
     }
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .icon-sidebar {
-    transform: translateX(-100%);
+    transform: translateX(calc(-120% * #{$transform-direction}));
 
     &.is-icon-sidebar-translated-mobile {
-      transform: translateX(calc(100% - 80px)) !important;
+      transform: translateX(calc((100% - 80px) * #{$transform-direction})) !important;
+      height: 100%;
+      margin: 0;
+      border-color: transparent;
+      border-#{$end-direction}-color: var(--sidebar-default-border-color);
+      border-radius: 0;
+      box-shadow: none;
     }
   }
 
   .menu-sidebar {
-    left: 0;
+    #{$start-direction}: 0;
     width: 100%;
     max-width: 250px;
+    padding-#{$start-direction}: 1rem !important;
 
     &.is-menu-sidebar-translated-mobile {
-      transform: translateX(80px) !important;
+      transform: translateX(calc(80px * #{$transform-direction})) !important;
     }
   }
 }

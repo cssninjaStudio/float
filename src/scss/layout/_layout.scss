@@ -12,7 +12,7 @@ Main wrapper
   transition: all 0.3s;
 
   &.is-pushed {
-    transform: translateX(250px);
+    transform: translateX(calc(250px * #{$transform-direction}));
   }
 
   .wrapper-inner {
@@ -56,7 +56,7 @@ Main wrapper
   .float-wrapper {
     width: 100% !important;
     margin: 0 !important;
-    padding: 0 1rem !important;
+    padding: 4rem 1rem 5rem 1rem !important;
   }
 }
 
@@ -77,6 +77,6 @@ Main wrapper
 @media only screen and (min-width: 1600px) {
   .float-wrapper {
     width: calc(100% - 420px);
-    margin-right: 340px;
+    margin-#{$end-direction}: 340px;
   }
 }
