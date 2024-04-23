@@ -4,33 +4,26 @@ import NotificationsDropdown from './NotificationsDropdown.astro'
 import AccountDropdown from './AccountDropdown.astro'
 ---
 
-<div
-  x-on:scroll.window="scroll()"
-  class="nav-wrapper"
-  :class="{
+<div x-on:scroll.window="scroll()" class="nav-wrapper" :class=`{
     'is-active': scrolled,
     '': !scrolled,
     'is-pushed': $store.app.sidebarOpenedState,
     '': !$store.app.sidebarOpenedState
-}"
->
+}`>
   <div class="nav-wrapper-inner">
     <div class="dashboard-nav">
-      <div
-        class="nav-start"
-        :class="{
+      <div class="nav-start" :class=`{
                 'is-hidden': isMobileSearchActive,
                 '': !isMobileSearchActive
-            }"
-      >
+            }`>
         <div class="nav-item mobile-item is-flex">
           <button
             @click="toggleMobileMenu()"
             class="menu-icon v-2 mobile-sidebar-trigger"
-            :class="{
+            :class=`{
               'is-open': $store.app.isSidebarOpenedMobile,
               '': !$store.app.isSidebarOpenedMobile
-            }"
+            }`
           >
             <span></span>
           </button>
@@ -38,34 +31,19 @@ import AccountDropdown from './AccountDropdown.astro'
 
         <div class="field">
           <div class="control has-icon">
-            <input
-              x-on:keyup="searchData($event)"
-              data-selector="static-results"
-              type="text"
-              class="input search-field"
-              placeholder="Search for anything..."
-            />
+            <input x-on:keyup="searchData($event)" data-selector="static-results" type="text" class="input search-field" placeholder="Search for anything..." />
             <div class="form-icon">
               <iconify-icon class="iconify" icon="lucide:search"></iconify-icon>
             </div>
-            <div
-              id="static-results"
-              class="search-results has-slimscroll"
-            ></div>
+            <div id="static-results" class="search-results has-slimscroll"></div>
           </div>
         </div>
       </div>
-      <div
-        class="nav-end"
-        :class="{
+      <div class="nav-end" :class=`{
             'is-hidden': isMobileSearchActive,
             '': !isMobileSearchActive
-        }"
-      >
-        <div
-          @click="toggleMobileSearch()"
-          class="nav-item mobile-item is-flex mobile-search-trigger"
-        >
+        }`>
+        <div @click="toggleMobileSearch()" class="nav-item mobile-item is-flex mobile-search-trigger">
           <iconify-icon class="iconify" icon="lucide:search"></iconify-icon>
         </div>
 
@@ -78,11 +56,7 @@ import AccountDropdown from './AccountDropdown.astro'
         </button>
 
         <label class="theme-toggle mask mask-blob">
-          <input
-            type="checkbox"
-            x-on:change="toggleTheme()"
-            :checked="$store.app.isDark"
-          />
+          <input type="checkbox" x-on:change="toggleTheme()" :checked="$store.app.isDark" />
           <span class="theme-toggle-inner">
             <iconify-icon class="sun-icon iconify" icon="lucide:sun"></iconify-icon>
             <iconify-icon class="moon-icon iconify" icon="lucide:moon"></iconify-icon>
@@ -92,13 +66,10 @@ import AccountDropdown from './AccountDropdown.astro'
         <AccountDropdown />
       </div>
 
-      <div
-        class="mobile-search"
-        :class="{
+      <div class="mobile-search" :class=`{
               'is-active': isMobileSearchActive,
               '': !isMobileSearchActive
-          }"
-      >
+          }`>
         <div class="field">
           <div class="control has-icon has-icon-right">
             <input
@@ -112,16 +83,10 @@ import AccountDropdown from './AccountDropdown.astro'
             <div class="form-icon">
               <iconify-icon class="iconify" icon="lucide:search"></iconify-icon>
             </div>
-            <div
-              @click="toggleMobileSearch(), $refs.searchmobilestatic.value = ''"
-              class="form-icon right-icon mobile-search-trigger"
-            >
+            <div @click="toggleMobileSearch(), $refs.searchmobilestatic.value = ''" class="form-icon right-icon mobile-search-trigger">
               <iconify-icon class="iconify" icon="lucide:x"></iconify-icon>
             </div>
-            <div
-              id="mobile-static-results"
-              class="search-results has-slimscroll"
-            ></div>
+            <div id="mobile-static-results" class="search-results has-slimscroll"></div>
           </div>
         </div>
       </div>
