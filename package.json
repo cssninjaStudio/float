@@ -1,6 +1,6 @@
 {
   "name": "float",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Astro + Bulma + AlpineJS Dashboard Kit",
   "type": "module",
   "private": true,
