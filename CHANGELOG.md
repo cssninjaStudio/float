@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/cssninjaStudio/float/compare/v2.2.2...v2.3.0) (2026-09-30)
+
+
+### ⚖️ License
+
+* relicense under MIT ([0ad85f8](https://github.com/cssninjaStudio/float/commit/0ad85f8020a84e68dcdb7c903c2a1c3a3c93f758))
+
 ### [2.2.2](https://github.com/cssninjaStudio/float/compare/v2.2.1...v2.2.2) (2024-05-02)
 
 ### [2.2.1](https://github.com/cssninjaStudio/float/compare/v2.2.0...v2.2.1) (2024-04-23)
